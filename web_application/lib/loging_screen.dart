@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/sign%20in%20page.dart';
+import 'package:flutter_application_1/welcome%20page.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -75,7 +76,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15)
                 ),
-                onPressed: () { },
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder:(_)
+                  {
+                    return const welcome_screen();
+                  }));
+                },
                 child:const Text("Log in",style:TextStyle(
                   fontFamily:'Inder-Regular',
                   fontSize:20,
@@ -94,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:(_){
-                      return signInPage();
+                      return const signInPage();
                     }));
                   },
                   child:const Text("Sign in",style:TextStyle(
