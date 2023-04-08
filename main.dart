@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Dialogflow(authGoogle: authGoogle, language: Language.english);
     AIResponse aiResponse = await dialogflow.detectIntent(query);
     setState(() {
-      messsages.insert(0, {
+      messages.insert(0, {
         "data": 0,
         "message": aiResponse.getListMessage()[0]["text"]["text"][0].toString()
       });
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final messageInsert = TextEditingController();
-  List<Map> messsages = List();
+  List<Map> messages = List();
 
   @override
   Widget build(BuildContext context) {
@@ -100,10 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Flexible(
                 child: ListView.builder(
                     reverse: true,
-                    itemCount: messsages.length,
+                    itemCount: messages.length,
                     itemBuilder: (context, index) => chat(
-                        messsages[index]["message"].toString(),
-                        messsages[index]["data"]))),
+                        messages[index]["message"].toString(),
+                        messages[index]["data"]))),
             SizedBox(
               height: 20,
             ),
@@ -168,7 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         print("empty message");
                       } else {
                         setState(() {
-                          messsages.insert(0,
+                          messages.insert(0,
                               {"data": 1, "message": messageInsert.text});
                         });
                         response(messageInsert.text);
